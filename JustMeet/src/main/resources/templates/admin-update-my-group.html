@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>JustMeet | Aggiorna Dati Evento</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+  	body {
+   	
+    line-height: 1.8;
+    background-color: #1abc9c;
+  	}
+  	p {font-size: 16px;}
+  
+ 	 .margin {margin-bottom: 45px;}
+  
+  	.bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+  	}
+ 	 .bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+ 	 }
+ 	 .bg-3 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+ 	 }
+  	.bg-4 { 
+    background-color:  #474e5d; /* Dark Blue */
+    color: #fff;
+ 	 }
+  	.container-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+ 	 }
+  	.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+
+ 
+ 	 }
+ 	 .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  	}
+	
+	.img-circle{
+	transition: transform .2s; /* Animation */
+	}
+	.img-circle:hover {
+		 transform: scale(1.2); /* (120% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+	}
+	
+	.lg-8{background: whitesmoke; border-radius: 10px; }
+	 
+	 hr.hr1{width: 50%;}
+  	
+  	.btn-primary{ background-color: #343a40; }
+  </style>
+  
+</head>
+<body >
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/admin">JustMeet</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+       <li class="nav-item">
+        <a class="nav-link" href="/profile-page-admin">Il Mio Profilo</a>
+        <li class="nav-item">
+        <a class="nav-link" href="/insert-event-admin">Crea Evento</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/insert-group-admin">Crea Gruppo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/see-events-admin">Gestisci Eventi</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/list-users-admin">Gestisci Utenti</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="/see-groups-admin">Gestisci Gruppi</a>
+      </li> 
+    </ul>
+    <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/logout" onClick="return confirm('Desideri chiudere la Sessione?')">Logout</a>
+            </li>
+        </ul>
+  </div>  
+</nav>
+<body>
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center" style="padding-bottom: 40px;">
+  <h1 class="margin">AGGIORNA DATI GRUPPO</h1>
+  <h4 style="margin-top: -40px; ">AMMINISTRATORE</h4>
+  <hr class="hr1">
+
+</div>
+
+<div class="container my-5">
+        <div class="card" style="color: #212529;">
+            <div class="card-body">
+                <div class="col-md-12">
+                    <form action="#" th:action="@{/update/myGroup/admin}" th:object="${usergroup}" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label for="email" class="col-form-label"></label> <input type="hidden" th:field="*{id}" class="form-control" id="id" placeholder="${usergroup.id}"> 
+                            </div> 
+                            <div class="form-group col-md-12">
+                            	<div class="row">
+                            		<div class="form-group col-md-4"></div>
+                            	 	<div class="form-group col-md-4">
+                             		<label for="name" class="col-form-label">NOME GRUPPO</label> <input type="text" th:field="*{name}" class="form-control" id="title" placeholder="${usergroup.name}"> 
+                             		</div>
+                              		<div class="form-group col-md-4"></div>                       
+                            	</div>
+                            </div> 
+                            <div class="form-group col-md-12">
+                                <label for="email" class="col-form-label"></label> <input type="hidden" th:field="*{id_creator}" class="form-control" id="status" placeholder="${usergroup.id_creator}"> 
+                           
+                            </div>
+                            <div class="form-group col-md-12" style="margin-left: 465px;">
+                                <input type="submit" class="btn btn-primary" value="SALVA">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

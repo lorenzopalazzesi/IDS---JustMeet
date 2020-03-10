@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>JustMeet | Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+  body {
+   	
+    line-height: 1.8;
+    background-color: #1abc9c;
+  }
+  
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+
+ 
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+  
+  .mySpace{
+  padding-top: 20px;
+  }
+  .btn-primary{
+  margin-left: 10px;
+  }
+  </style>
+  
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/admin">JustMeet</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+     <li class="nav-item">
+        <a class="nav-link" href="/profile-page-admin">Il Mio Profilo</a>
+        <li class="nav-item">
+        <a class="nav-link" href="/insert-event-admin">Crea Evento</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/see-events-admin">Gestisci Eventi</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/list-users-admin">Gestisci Utenti</a>
+      </li> 
+    </ul>
+    <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/logout" onClick="return confirm('Desideri chiudere la Sessione?')">Logout</a>
+            </li>
+        </ul>
+  </div>  
+</nav>
+
+<body>
+    <div class="container my-5">
+        <h3> AGGIORNA DATI</h3>
+        <div class="card" style="color: #212529;">
+            <div class="card-body">
+                <div class="col-md-8">
+                    <form action="#" th:action="@{/update/{id}(id=${user.id})}" th:object="${user}" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="name" class="col-form-label">Name</label> <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Nome"> <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                            </div>
+                            <!-- <div class="form-group col-md-6">
+                                <label for="name" class="col-form-label">Cognome</label> <input type="text" th:field="*{lastName}" class="form-control" id="lastName" placeholder="Cognome"> 
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="email" class="col-form-label">Email</label> <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Email"> 
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="email" class="col-form-label">Password</label> <input type="text" th:field="*{password}" class="form-control" id="password" placeholder="Password"> 
+                            </div> -->
+                            <div class="form-group col-md-8">
+                                <input type="submit" class="btn btn-primary" value="SALVA">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

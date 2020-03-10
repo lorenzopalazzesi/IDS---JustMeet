@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>JustMeet | FeedBack</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+  	body {
+   	
+    line-height: 1.8;
+    background-color: #1abc9c;
+  	}
+  	p {font-size: 16px;}
+  
+ 	 .margin {margin-bottom: 45px;}
+  
+  	.bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+  	}
+ 	 .bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+ 	 }
+ 	 .bg-3 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+ 	 }
+  	.bg-4 { 
+    background-color:  #474e5d; /* Dark Blue */
+    color: #fff;
+ 	 }
+  	.container-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+ 	 }
+  	.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+
+ 
+ 	 }
+ 	 .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  	}
+	
+	.lg-8{background: whitesmoke; border-radius: 10px; }
+	 
+	 hr.hr1{width: 50%;}
+  	
+  	.btn-primary{ background-color: #343a40; }
+  </style>
+</head>
+
+<body>
+<!-- Barra di Navigazione -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/home">JustMeet</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+     <li class="nav-item">
+        <a class="nav-link" href="/profile-page">Il Mio Profilo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/insert-event">Crea Evento</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/insert-group-user">Crea Gruppo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/see-events">Eventi Disponibili</a>
+      </li>  
+       <li class="nav-item">
+        <a class="nav-link" href="/list">Lista Utenti</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="/see-groups">Gruppi</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/logout" onClick="return confirm('Desideri chiudere la Sessione?')">Logout</a>
+            </li>
+        </ul>
+  </div>  
+</nav>
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+  <h1 class="margin">INSERISCI FEEDBACK</h1>
+  <hr class="hr1">
+</div>
+
+<div class="container my-5">
+        <div class="card" style="color: #212529;">
+            <div class="card-body">
+                <div class="col-md-12">
+                    <form action="#" th:action="@{/insert-feedback}" th:object="${feedback}" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label for="feedback" class="col-form-label"></label> <input type="text" th:field="*{feedback}" class="form-control" id="id" placeholder="Inserisci Feedback"> 
+                            </div> 
+                            <div class="form-group col-md-12">
+                                <label for="feedback" class="col-form-label"></label> <input type="hidden" th:field="*{idreviewed}" class="form-control" id="idreviewed" placeholder=""> 
+                            </div> 
+                            <div class="form-group col-md-12">
+                                <label for="feedback" class="col-form-label"></label> <input type="hidden" th:field="*{emailrewiever}" class="form-control" id="idreviewed" placeholder=""> 
+                            </div> 
+                            <div class="form-group col-md-12" style="margin-left: 465px;">
+                                <input type="submit" class="btn btn-primary" value="SALVA">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	
+</body>
+</html>
