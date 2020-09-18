@@ -1,1 +1,1 @@
-# IDS---JustMeet
+# Progetto JustMeet per esame Ingegneria del Software 
